@@ -4,11 +4,11 @@ const router = express.Router();
 const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const passport = require('passport')
+const passport = require('passport');
 
 // Load Input Validation
-const validateRegisterInput = require('../../validation/register')
-const validateLoginInput = require('../../validation/login')
+const validateRegisterInput = require('../../validation/register');
+const validateLoginInput = require('../../validation/login');
 
 // Load User model
 var User = require('../../models/User');
@@ -78,16 +78,18 @@ router.post('/login', (req, res) => {
 
   //find user by email
   User.findOne({ email }).then(user => {
+    console.log(user);
     //check for user
     if (!user) {
-      errors.email = 'User not found';
-      return res.status(404).json(errors);
+      // errors.email = 'User not found';
+      return res.status(404).json({email: 'User not found'});
     }
 
     //check password
     bcrypt.compare(password, user.password).then(isMatch => {
       if (isMatch) {
         //user matched
+        // return res.json({ message: 'Success' });
         const payload = {
           id: user.id,
           name: user.name,
