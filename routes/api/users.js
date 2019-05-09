@@ -24,7 +24,8 @@ router.post(
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+      return res.status(400)
+        .json({ errors: errors.array() });
     }
 
     const { name, email, password } = req.body;
@@ -77,57 +78,5 @@ router.post(
     }
   }
 );
-
-// // @route   GET api/users/login
-// // @desc    Login User / Returning JWT Token
-// // @access  Public
-// router.post('/login', (req, res) => {
-
-//   const email = req.body.email;
-//   const password = req.body.password;
-
-//   //find user by email
-//   User.findOne({ email }).then(user => {
-//     console.log(user);
-//     //check for user
-//     if (!user) {
-//       // errors.email = 'User not found';
-//       return res.status(404).json({email: 'User not found'});
-//     }
-
-//     //check password
-//     bcrypt.compare(password, user.password).then(isMatch => {
-//       if (isMatch) {
-//         //user matched
-//         // return res.json({ message: 'Success' });
-//         const payload = {
-//           id: user.id,
-//           name: user.name,
-//           avatar: user.avatar
-//         };
-
-//         // sign token
-//         jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
-//           res.json({
-//             success: true,
-//             token: 'Bearer ' + token
-//           });
-//         });
-//       } else {
-//         errors.password = 'Password incorrect'
-//         return res.status(400).json(errors);
-//       }
-//     });
-//   });
-// });
-
-// // @route   GET api/users/current
-// // @desc    Return current user
-// // @access  Private
-// router.get('/current', passport.authenticate('jwt', { session: false }),
-//   (req, res) => {
-//   res.json(req.user);
-//   }
-// );
 
 module.exports = router;
