@@ -31,17 +31,17 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
       company: loading || !profile.company ? '' : profile.company,
       website: loading || !profile.website ? '' : profile.website,
       location: loading || !profile.location ? '' : profile.location,
-      bio: loading || !profile.status ? '' : profile.status,
-      status: loading || !profile.skills ? '' : profile.skills.join(','),
+      bio: loading || !profile.bio ? '' : profile.bio,
+      skills: loading || !profile.skills ? '' : profile.skills.join(','),
       githubusername: loading || !profile.githubusername ? '' : profile.githubusername,
-      skills: loading || !profile.bio ? '' : profile.bio,
+      status: loading || !profile.status ? '' : profile.status,
       youtube: loading || !profile.social ? '' : profile.social.twitter,
       facebook: loading || !profile.social ? '' : profile.social.facebook,
       twitter: loading || !profile.social ? '' : profile.social.linkedin,
       instagram: loading || !profile.social ? '' : profile.social.youtube,
       linkedin: loading || !profile.social ? '' : profile.social.instagram
-    }, [loading]);
-
+    }, [loading, getCurrentProfile]);
+     // eslint-disable-next-line
   }, []);
 
   const {
@@ -64,11 +64,12 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
   const onSubmit = e => {
     e.preventDefault();
     createProfile(formData, history, true);
+    history.push('/dashboard')
   }
 
   return (
     <Fragment>
-      <h1 className="large text-primary">
+      <h1 className="large text-prime">
         Create Your Profile
       </h1>
       <p className="lead">

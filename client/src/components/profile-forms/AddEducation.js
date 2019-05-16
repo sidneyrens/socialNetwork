@@ -13,7 +13,7 @@ const AddEducation = ({ addEducation, history}) => {
     fieldofstudy: '',
     from: '',
     to: '',
-    current: '',
+    current: false,
     description: ''
   });
 
@@ -25,7 +25,7 @@ const AddEducation = ({ addEducation, history}) => {
 
   return (
     <Fragment>
-      <h1 className="large text-primary">
+      <h1 className="large text-prime">
         Add Your Education
       </h1>
       <p className="lead">

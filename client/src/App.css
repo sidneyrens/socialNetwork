@@ -26,6 +26,10 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 ul {
   list-style: none;
 }
@@ -66,7 +70,7 @@ img {
   text-align: center;
 }
 
-.text-primary {
+.text-prime {
   color: var(--primary-color);
 }
 
@@ -126,6 +130,7 @@ img {
   margin: 3rem 0;
 }
 
+/* Buttons */
 .btn {
   display: inline-block;
   background: var(--light-color);
@@ -205,8 +210,14 @@ img {
   border: #ccc solid 1px;
 }
 
-.btn:hover {
+.btn:hover,
+.btn-primary:hover {
   opacity: 0.8;
+}
+
+.btn-primary:hover {
+  background: #148ea1;
+  color: #fff;
 }
 
 .bg-light,

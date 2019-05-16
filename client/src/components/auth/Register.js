@@ -35,7 +35,7 @@ const Register = ({setAlert, register, isAuthenticated }) => {
 
   return (
     <Fragment>
-      <h1 className="large text-primary">Sign Up</h1>
+      <h1 className="large text-prime">Sign Up</h1>
       <p className="lead">
         <i className="fas fa-user" /> Create your DevConnector account.</p>
       <form className="form" onSubmit={e => onSubmit(e)}>
